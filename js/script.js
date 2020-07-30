@@ -7,7 +7,6 @@ var arrPc = [],
     arrUser = [],
     n = 5, // lunghezza array, per mantenere una certa generalità
     numPc,
-    numUser,
     arrGuessed = []; // array in cui salvo gli input indovinati dall'utente
 
 // 2. Genero 5 numeri casuali senza ripetizioni e li salvo in un array (uso un ciclo WHILE perché non conosco il numero esatto di cicli da eseguire per via del controllo sulle ripetizioni)
@@ -47,7 +46,7 @@ function guess() {
     for (var i = 0; i < n; i++) { // uso un ciclo FOR perché so esattamente che l'array avrà n elementi
 
         // chiedo all'utente di inserire un numero fino a riempire l'array
-        numUser = parseInt(prompt('Prova a indovinare uno dei numeri che hai appena visto'));
+        var numUser = parseInt(prompt('Prova a indovinare uno dei numeri che hai appena visto'));
 
         // effettuo un controllo sull'input dell'utente, affinché non digiti un numero già inserito
         while (arrUser.includes(numUser)) {
@@ -61,7 +60,23 @@ function guess() {
         if (arrPc.includes(numUser)) {
             arrGuessed.push(numUser);
         }
+
+
     }
+    // CRISTINA
+    // for (var i = 0; i < 5; i++) {
+    //     // al massimo deve inserire 5 numeri
+    //     var n = parseInt(prompt('Inserisci un numero da 1 a ' + max));
+    //     while (n <= 0 || n > 100 || isNaN(n)) { // controllo opzionale sulla natura di n con isNaN
+    //         var n = parseInt(prompt('Attenzione! Devi inserire un numero da 1 a ' + max));
+    //     }
+    //     // Se inserisce un numero (che non è nell'array del pc) già digitato in precedenza cavoli suoi, voglio solo impedirgli di inserire nuovamente un numero già indovinato
+    //     if (ricerca(numeriCasuali,n) && !ricerca(numeriUtente,n)) {
+    //         numeriUtente.push(n);
+    //     }
+    // }
+    // console.log('Hai indovinato ' + numeriUtente.length + ' numeri e sono: ' + numeriUtente);
+    // FINE CRISTINA
 
     // Uso lo switch case per divertirmi a visualizzare messaggi diversi a seconda dell'esito del gioco
     switch (arrGuessed.length) {
